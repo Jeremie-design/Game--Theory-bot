@@ -40,7 +40,7 @@ class MLprisonerBot:
         
 
         
-def learn( self, last_bot_move, last_opp_move, reward, lr=1.0):
+def learn( self, last_bot_move, last_opp_move, reward, lr=3.0):
     target = reward/1.0
 
     inputs = np.array([[last_bot_move, last_opp_move, 1]])

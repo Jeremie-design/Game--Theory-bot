@@ -6,16 +6,15 @@ from LrBot import AdaptivePrisonerBot
 def random_opponent(history):
     return np.random.choice([0,1])
 
-def tit_for_tat(opp_history):
-    if not opp_history:
-        return None
+
+def tit_for_tat(bot_history):
+    return 0 if not bot_history else bot_history[-1]
+    
    
     
-rounds = 10
+rounds = 40000
 
-opponents = {
-    "Random": random_opponent,"Tit-for-Tat" : tit_for_tat
-    }
+opponents = { "Random": random_opponent,"Tit-for-Tat" : tit_for_tat}
 
 payoff_matrix = {
     (0, 0): (3, 3),
@@ -33,6 +32,7 @@ for name, opponents_fn in opponents.items():
     
 
     for round_number in range (1, rounds+1):
+
         opp_move = opponents_fn(bot.bot_history)
         bot_move = bot.act()
 
@@ -42,7 +42,7 @@ for name, opponents_fn in opponents.items():
         bot_score += bot_payoff
         opp_score += opp_payoff
 
-        print(f"Round {round_number}: Bot={'C' if bot_move==0 else 'D'} | Opponent={'C' if opp_move==0 else 'D'}")
+        #print(f"Round {round_number}: Bot={'C' if bot_move==0 else 'D'} | Opponent={'C' if opp_move==0 else 'D'}")
 
     print(f"Final Score after {rounds} rounds: Bot={bot_score}, Opponent={opp_score}")
     coop_percentage = bot.bot_history.count(0) / len(bot.bot_history) * 100
