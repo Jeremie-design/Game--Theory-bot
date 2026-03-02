@@ -31,7 +31,7 @@ A bias term is appended, resulting in a 19-dimensional input vector:
 ### Model Architecture
 The decision-making model is a **single-neuron logistic regression classifier**:
 
- (`σ(w⋅x)`)
+ (`σ(W⋅X)`)
  
 - X input vector of its last moves and opponent's last move 
 - W The weight vector (Learing part)
