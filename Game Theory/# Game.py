@@ -82,7 +82,7 @@ while True:
     round_number += 1  
 
 """
-    print("=== DEBUGGING ===")
+    print("DEBUGGING ")
     print("Bot history:", bot.bot_history)
     print("Opponent history:", bot.opp_history)
 """
